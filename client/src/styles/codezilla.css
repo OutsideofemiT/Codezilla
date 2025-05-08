@@ -1,0 +1,721 @@
+/* BACKGROUND */
+/* body {
+    background-image: url('/codezilla_bkgd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+} */
+body.login-background {
+    background-color: #000; 
+    background-image: url('/background/codezilla_bkgd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+body.intro-background {
+    background-color: black; 
+}
+  
+  
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* SIGNUP */
+
+.signup-button {
+    font-size: 1rem;
+    background: none;
+    color: #7dd3fc;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.avatar-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2 rem 0;
+    width: 100%;
+}
+
+.avatar-option {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.avata
+/* QUIZ CONTAINER */
+
+.quiz-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* QUESTION BOX */
+
+.question-box {
+
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 50, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+.question-options p {
+    margin: 10px 0;
+    cursor: pointer;
+    color: #facc15;
+}
+
+.quiz-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(30, 30, 80, 0.7);
+    border-radius: 12px;
+    padding: 10px 24px;
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+/* Game Over Page Styling */
+/* Full-screen rainy night background */
+.game-over-page {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: sans-serif;
+}
+
+/* Logo in top-left corner */
+.game-over-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 160px;
+    /* adjust as needed */
+}
+
+/* The dark rounded panel */
+.game-over-container {
+    background: rgba(0, 0, 30, 0.9);
+    border-radius: 40px;
+    padding: 40px 60px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    text-align: center;
+    max-width: 800px;
+    width: calc(100% - 80px);
+}
+
+/* “Game Over!” */
+.game-over-title {
+    color: #e00;
+    font-size: 4rem;
+    margin: 0;
+}
+
+/* Avatars row */
+.game-over-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 2.5rem 0;
+}
+
+.player-avatar,
+.codezilla-avatar {
+    width: 120px;
+    /* adjust size */
+    height: auto;
+}
+
+/* “You were defeated…” */
+.game-over-subtitle {
+    color: #e00;
+    font-size: 2rem;
+    margin: 0.5rem 0 1.5rem;
+}
+
+/* “try again…” */
+.game-over-cta {
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.game-over-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .game-over-actions .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  
+  .play-again-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .main-menu-btn {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .main-menu-btn:hover {
+    background-color: #333;
+  }
+
+/* Victory Page Styling */
+/* Full-screen rainy night background */
+.victory-page {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: sans-serif;
+}
+
+/* Logo in top-left corner */
+.victory-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 160px;
+}
+
+/* Dark rounded panel container */
+.victory-container {
+    position: relative;
+    background: rgba(0, 0, 30, 0.9);
+    border-radius: 40px;
+    padding: 40px 60px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    max-width: 800px;
+    width: calc(100% - 80px);
+    overflow: hidden;
+}
+
+/* Confetti overlay inside the panel */
+.victory-confetti {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* “Congratulations!” */
+.victory-title {
+    color: #fff;
+    font-size: 3.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Player avatar */
+.victory-avatar {
+    width: 120px;
+    height: auto;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* “You defeated Codezilla!” */
+.victory-subtitle {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* “you are a coding master!” */
+.victory-cta {
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.victory-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .victory-actions .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  
+  .play-again-btn:hover,
+  .main-menu-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .main-menu-btn {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .main-menu-btn:hover {
+    background-color: #333;
+  }
+  
+/* GAME MAP */
+.game-map {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+}
+
+/* GAME MAP */
+.game-map {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* BACKGROUND IMAGE */
+  .background-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+  }
+  
+  /* MAP LINES CONTAINER */
+  .map-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* LINES BETWEEN NODES */
+  .map-line {
+    stroke: #7dd3fc;
+    stroke-width: 8;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 6px #7dd3fc);
+    stroke-linecap: round;
+  }
+  
+  /* OUTER GLOWING CIRCLE */
+  .map-node-outer {
+    fill: #7dd3fc;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px #7dd3fc) drop-shadow(0 0 16px #7dd3fc);
+    transition: all 0.5s ease;
+  }
+  
+  /* DARKER INNER CIRCLE */
+  .map-node-inner {
+    fill: #154186; 
+    opacity: 1;
+  }
+  
+  /* GLOWING GREEN COMPLETED OUTER CIRCLE */
+  .map-node-outer.completed {
+    fill: #22c55e;
+    filter: drop-shadow(0 0 10px #22c55e) drop-shadow(0 0 15px #22c55e);
+    animation: pulse 2s infinite;
+  }
+  
+  /* GLOWING GREEN COMPLETED LINE */
+  .map-line.completed {
+    stroke: #22c55e;
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #22c55e);
+    animation: pulse 2s infinite;
+  }
+  
+  /* PULSE ANIMATION */
+  @keyframes pulse {
+    0% {
+      filter: drop-shadow(0 0 8px #22c55e);
+    }
+    50% {
+      filter: drop-shadow(0 0 15px #22c55e);
+    }
+    100% {
+      filter: drop-shadow(0 0 8px #22c55e);
+    }
+  }
+  
+  /* AVATAR HOVER */
+  .avatar-option {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .avatar-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5);
+  }
+  .avatar-option.selected {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px 8px rgba(0, 255, 255, 0.7);
+  }
+
+  /* MINION HOVER EFFECT */
+  .minion-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .minion:hover .minion-image {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px 4px rgba(0, 255, 255, 0.5);
+  }
+  
+  .minion.selected .minion-image {
+    transform: scale(1.2);
+    box-shadow: 0 0 18px 6px rgba(255, 255, 0, 0.6);
+  }
+  /* LOGO */
+
+  .app-wrapper {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .logo-background {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* DR DAN */
+  .dr-dan-wrapper {
+    position: absolute;
+    bottom: 20px;
+    right: 70px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  
+  .glow-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,255,255,0.4) 60%, transparent 80%);
+    box-shadow: 0 0 40px 15px rgba(0, 255, 255, 0.4);
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .dr-dan-image {
+    width: 160px;
+    height: auto;
+    z-index: 2;
+    pointer-events: auto;
+  }
+  
+/* PLAYER AVATAR SETUP */
+.player-avatar-wrapper {
+    position: absolute;
+    bottom: 30px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    pointer-events: none;
+  }
+  
+  
+  
+  .player-glow-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 60%, transparent 80%);
+    box-shadow: 0 0 20px 6px rgba(0, 255, 255, 0.3);
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .player-avatar {
+    width: 100px;
+    height: auto;
+    z-index: 2;
+    border-radius: 50%;
+    pointer-events: auto;
+  }
+  
+  /* PLAYER STATS */
+  .player-info-wrapper {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    gap: 24px; 
+  }
+
+  .player-info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    min-width: 140px;
+    border-radius: 12px;
+    padding: 10px 16px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+  }
+  
+  .player-name {
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .player-level {
+    margin: 0;
+    font-size: 13px;
+    color: #80ffff;
+  }
+  
+
+  /* LEARNING BOX */
+  .learning-info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    min-width: 140px;
+    border-radius: 12px;
+    padding: 8px 14px;
+    color: #80ffff;
+    font-size: 13px;
+    line-height: 1.4;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+  }
+  
+  .learning-text {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .learning-title {
+        color: white;
+        font-weight: bold;
+        margin: 0 0 4px 0;
+      }
+      
+      .learning-subject {
+        color: #80ffff;
+        font-weight: normal;
+        margin: 0;
+      }
+      
+  /* LIFE LINES */
+  .lifeline-info-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    min-width: 140px;
+    border-radius: 12px;
+    padding: 10px 16px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+  }
+  
+  .lifeline-text {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .flames {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+  
+  .flames img {
+    width: 24px;  
+    height: 24px;
+    object-fit: contain;
+  }
+  
+
+  /* LOGOUT BUTTON */
+  .logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    backdrop-filter: blur(4px);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+  }
+
+  /* VIDEO INTRO */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+body.signup-background,
+body.map-background,
+body.victory-background,
+body.gameover-background,
+body.quiz-background {
+  background-color: #000;
+  background-image: url('/background/codezilla_bkgd.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+  .question-screen {
+    position: relative;
+    z-index: 10;
+    background-color: rgba(0, 0, 50, 0.8);
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  pre {
+    overflow-x: auto;
+    padding: 1rem;
+    background-color: #0f172a; /* dark slate */
+    color: #e0f2fe; /* light blue for visibility */
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  code {
+    color: #facc15; /* yellow for inline code */
+    background-color: #1e293b; /* dark background */
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+  }
+ 

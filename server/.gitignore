@@ -1,0 +1,14 @@
+# 🧰 Node modules
+node_modules/
+
+# 🏗️ TypeScript build output
+dist/
+
+# 🔐 Environment variables
+.env
+
+# 🧹 Logs and system files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store

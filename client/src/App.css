@@ -1,0 +1,8 @@
+/* Add your CSS styles here */
+.border {
+  border-style: dashed;
+  border-color: #f59e0b; /* yellow-500 */
+  padding: 2.5rem; /* p-10 */
+  text-align: center;
+  border-radius: 0.5rem; /* rounded-lg */
+}

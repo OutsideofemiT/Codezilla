@@ -1,0 +1,69 @@
+.player-info {
+    background-color: rgb(10, 4, 65);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: inset 0 0 10px rgba(60, 255, 0, 1),
+                0 0 10px rgba(60, 255, 0, 1);
+}
+
+.player-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.player-info p {
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Align text to the left */
+  flex: 1; /* Allow the text to take up equal space */
+  color:rgb(161, 82, 252);
+}
+
+.leaderboard-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .leaderboard-page {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    font-family: sans-serif;
+}
+
+
+.leaderboard-container {
+  background: rgba(0, 0, 30, 0.9);
+  border-radius: 40px;
+  padding: 40px 60px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  text-align: center;
+  width: 100%;
+
+}
+
+/* BACKGROUND IMAGE */
+.background-image {
+  background-image: url('/backgrounds/game-bg.jpg');
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
