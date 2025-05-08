@@ -94,7 +94,7 @@ npm run start
   ![](screenshots/Leasderboard_Page.png)
 
 ## 🌐 Live Site
-[Codezilla on Render](https://codezilla-fnqd.onrender.com/)
+[Codezilla on Render](https://codezilla-44l1.onrender.com/)
 
 ## 👥 Contributors
 Special thanks to the team behind Codezilla:
