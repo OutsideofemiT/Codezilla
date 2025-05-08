@@ -7,7 +7,7 @@ import { preloadSounds } from '../../utils/preloadSounds';
 import BackgroundMusic from '../BackgroundMusicProvider';
 
 import "../../styles/codezilla.css";
-import drDanImg from '@/assets/avatars/drdan2.png';
+import drDanImg from '/assets/avatars/drdan2.png';
 import flameImg from '/assets/flame.png';
 
 
