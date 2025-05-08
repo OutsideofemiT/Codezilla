@@ -1,8 +1,7 @@
 import User from '../models/User';
 import Character from '../models/Characters';
 import { signToken } from '../utils/auth';
-import { ApolloError } from 'apollo-server-errors';
-import { AuthenticationError } from 'apollo-server-errors';
+import { GraphQLError } from 'graphql';
 import { OpenAI } from 'openai';
 import { PromptBuilder } from '../utils/PromptBuilder'; 
 import dotenv from 'dotenv';
@@ -30,15 +29,14 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
-      throw new ApolloError('You need to be logged in!', 'UNAUTHENTICATED');
+      throw new GraphQLError('You need to be logged in!', {
+        extensions: { code: 'UNAUTHENTICATED' },
+      });
     },
 
     getAllUsers: async () => {
-      const users = await User.find();
-      return users;
+      return await User.find();
     },
-
-
 
     generateQuestion: async (_parent: any, args: { track: string; level: string; minion: string }) => {
       const { track, level, minion } = args;
@@ -63,8 +61,8 @@ const resolvers = {
 
         return {
           question: fallback.question,
-          choices: fallback.choices,   // already formatted like "A) choice"
-          answer: fallback.answer      // already formatted like "B"
+          choices: fallback.choices,
+          answer: fallback.answer
         };
       }
     },
@@ -81,12 +79,16 @@ const resolvers = {
       const user = await User.findOne({ username });
 
       if (!user) {
-        throw new ApolloError('Invalid credentials', 'UNAUTHENTICATED');
+        throw new GraphQLError('Invalid credentials', {
+          extensions: { code: 'UNAUTHENTICATED' },
+        });
       }
 
       const isPasswordCorrect = await user.isCorrectPassword(password);
       if (!isPasswordCorrect) {
-        throw new AuthenticationError('Invalid credentials');
+        throw new GraphQLError('Invalid credentials', {
+          extensions: { code: 'UNAUTHENTICATED' },
+        });
       }
 
       const token = signToken(user.username, user._id);
@@ -103,9 +105,10 @@ const resolvers = {
     },
 
     updateStats: async (_parent: any, { isCorrect }: { isCorrect: boolean }, context: any) => {
-      // console.log('Updating stats for user:', context.user);
       if (!context.user) {
-        throw new AuthenticationError('You need to be logged in!');
+        throw new GraphQLError('You need to be logged in!', {
+          extensions: { code: 'UNAUTHENTICATED' },
+        });
       }
 
       const update = isCorrect
