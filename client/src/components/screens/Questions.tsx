@@ -5,12 +5,10 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { preloadSounds } from '../../utils/preloadSounds';
-
 import BackgroundMusic from '../BackgroundMusicProvider';
 import { UPDATE_STATS } from '@/graphql/mutations';
 import { useMutation } from '@apollo/client';
-
-
+import { useBodyClass } from '../../utils/useBodyClass'; // ✅ make sure this exists and works
 
 interface Question {
   snippet?: string;
@@ -57,8 +55,9 @@ const CollapsibleSnippet: React.FC<{ code: string }> = ({ code }) => {
 const Questions: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  useBodyClass('quiz-background'); // ✅ applies your CSS background
 
-  const [updateQuestionStats] = useMutation(UPDATE_STATS)
+  const [updateQuestionStats] = useMutation(UPDATE_STATS);
 
   const [question, setQuestion] = useState<Question | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState('');
@@ -180,14 +179,12 @@ const Questions: React.FC = () => {
 
     try {
       await updateQuestionStats({
-        variables: {
-          isCorrect
-        },
+        variables: { isCorrect },
       });
-    }
-    catch (error) {
+    } catch (error) {
       console.error('Error updating question stats:', error);
     }
+
     setTimeout(() => {
       if (questionNumber === 5) {
         navigate(isCorrect ? '/victory' : '/gameover');
@@ -198,11 +195,7 @@ const Questions: React.FC = () => {
   const handleBack = () => navigate('/map');
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: 'url("/background/codezilla_bkgd.png")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
-
-    >
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat relative">
       <BackgroundMusic src="/black.sabbath.mp3" volume={0.03} />
 
       <div className="relative question-screen max-h-screen overflow-y-auto p-6 max-w-xl mx-auto text-left pb-40">
@@ -237,27 +230,26 @@ const Questions: React.FC = () => {
               ))}
 
             <div className="mb-4 text-white text-base text-left whitespace-pre-wrap">
-  <ReactMarkdown
-  components={{
-    p({ node, children, ...props }) {
-      return <div className="mb-2" {...props}>{children}</div>;
-    },
-    code({ inline, children, ...props }: { inline?: boolean; children?: React.ReactNode }) {
-      return inline ? (
-        <code className="inline-code" {...props}>
-          {children}
-        </code>
-      ) : (
-        <pre className="bg-gray-800 p-4 rounded-md text-sm font-mono shadow-lg overflow-x-auto">
-          <code {...props}>{children}</code>
-        </pre>
-      );
-    },
-  }}
->
-  {question.question}
-</ReactMarkdown>
-
+              <ReactMarkdown
+                components={{
+                  p({ node, children, ...props }) {
+                    return <div className="mb-2" {...props}>{children}</div>;
+                  },
+                  code({ inline, children, ...props }: React.HTMLAttributes<HTMLElement> & { inline?: boolean }) {
+                    return inline ? (
+                      <code className="inline-code" {...props}>
+                        {children}
+                      </code>
+                    ) : (
+                      <pre className="bg-gray-800 p-4 rounded-md text-sm font-mono shadow-lg overflow-x-auto">
+                        <code {...props}>{children}</code>
+                      </pre>
+                    );
+                  },
+                }}
+              >
+                {question.question}
+              </ReactMarkdown>
             </div>
 
             <div className="text-left flex flex-col items-start gap-2 text-white">
