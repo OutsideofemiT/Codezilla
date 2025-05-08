@@ -1,7 +1,8 @@
 import User from '../models/User';
 import Character from '../models/Characters';
 import { signToken } from '../utils/auth';
-import { AuthenticationError } from 'apollo-server-express';
+import { ApolloError } from 'apollo-server-errors';
+import { AuthenticationError } from 'apollo-server-errors';
 import { OpenAI } from 'openai';
 import { PromptBuilder } from '../utils/PromptBuilder'; 
 import dotenv from 'dotenv';
@@ -29,7 +30,7 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new ApolloError('You need to be logged in!', 'UNAUTHENTICATED');
     },
 
     getAllUsers: async () => {
@@ -80,7 +81,7 @@ const resolvers = {
       const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('Invalid credentials');
+        throw new ApolloError('Invalid credentials', 'UNAUTHENTICATED');
       }
 
       const isPasswordCorrect = await user.isCorrectPassword(password);
