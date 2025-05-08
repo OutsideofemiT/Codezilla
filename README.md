@@ -93,9 +93,6 @@ npm run start
 - **Leaderboard Page**
   ![](screenshots/Leasderboard_Page.png)
 
-## 🎥 Walkthrough Video
-Watch the full demo here: [▶️ Google Drive](https://drive.google.com/file/d/1w4CuEhkTLKw2DuUM9wRGYpTyLF4cwDAl/view)
-
 ## 🌐 Live Site
 [Codezilla on Render](https://codezilla-fnqd.onrender.com/)
 
