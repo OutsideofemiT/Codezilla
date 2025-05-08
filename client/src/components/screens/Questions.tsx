@@ -200,7 +200,8 @@ const Questions: React.FC = () => {
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: 'url("/background/codezilla_bkgd.png")' }}
+      style={{ backgroundImage: 'url("/background/codezilla_bkgd.png")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}
+
     >
       <BackgroundMusic src="/black.sabbath.mp3" volume={0.03} />
 
