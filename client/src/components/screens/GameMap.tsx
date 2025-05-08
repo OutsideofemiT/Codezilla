@@ -41,18 +41,18 @@ const GameMap: React.FC = () => {
       name: 'Nullbyte',
       questionId: 'q1',
       taunt: "Don't blank out now... this should be easy.",
-      sound: '/public/cave-monster.mp3',
+      sound: '/cave-monster.mp3', // ✅
       colorClass: 'bg-blue-600 text-white',
     },
     {
       id: '2',
       xPercent: 35,
       yPercent: 48,
-      image: '/assets/minions/dbug2a.png',
+      image: '/assets/minions/Dbug2a.png',
       name: 'Dbug',
       questionId: 'q2',
       taunt: "Let's squash some bugs... or get squashed.",
-      sound: '/public/alienScream.mp3',
+      sound: '/alienScream.mp3', // ✅
       colorClass: 'bg-yellow-500 text-black',
     },
     {
@@ -63,19 +63,18 @@ const GameMap: React.FC = () => {
       name: 'Typerrorasaurus',
       questionId: 'q3',
       taunt: "Let’s see how you handle *this* error.",
-      sound: '/public/mad-keyboard-typing.mp3',
+      sound: '/mad-keyboard-typing.mp3', // ✅
       colorClass: 'bg-red-600 text-white',
     },
     {
       id: '4',
       xPercent: 70,
       yPercent: 45,
-
       image: '/assets/minions/pie-thon.png',
       name: 'Pie-Thon',
       questionId: 'q4',
       taunt: "The only slice you'll get is defeat.",
-      sound: '/public/snakeHiss.mp3',
+      sound: '/snakeHiss.mp3', // ✅
       colorClass: 'bg-green-700 text-white',
     },
     {
@@ -86,10 +85,11 @@ const GameMap: React.FC = () => {
       name: 'Codezilla',
       questionId: 'q5',
       taunt: "You dare challenge ME?",
-      sound: '/public/godzilla.roar.mp3',
+      sound: '/godzilla.roar.mp3', // ✅
       colorClass: 'bg-purple-800 text-white',
     },
   ];
+  
 
   const nodes = [
     { id: 'node1', xPercent: 18, yPercent: 28 },
