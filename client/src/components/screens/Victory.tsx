@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import "../../styles/codezilla.css";
 
 export default function VictoryPage({
-  avatarUrl     = '../../../public/assets/avatars/drdan2.png',
+  avatarUrl = '/assets/avatars/drdan2.png',
   confettiUrl   = '/background/confetti_image.jpg',
 }) {
   const navigate = useNavigate();

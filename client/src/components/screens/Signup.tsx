@@ -9,12 +9,13 @@ import { ADD_USER } from "../../graphql/mutations";
 import { useBodyClass } from '../../utils/useBodyClass';
 
 const avatarList = [
-  "../../../public/assets/avatars/carmen.png",
-  "../../../public/assets/avatars/jacquilyn.png",
-  "../../../public/assets/avatars/trevor.png",
-  "../../../public/assets/avatars/michael.png",
-  "../../../public/assets/avatars/shawna.png",
+  "/assets/avatars/carmen.png",
+  "/assets/avatars/jacquilyn.png",
+  "/assets/avatars/trevor.png",
+  "/assets/avatars/michael.png",
+  "/assets/avatars/shawna.png",
 ];
+
 
 const SignUp: React.FC = () => {
   useBodyClass('signup-background');

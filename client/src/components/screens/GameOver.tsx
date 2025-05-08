@@ -1,47 +1,28 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import "../../styles/codezilla.css";
 
-const GameOverPage = ({
-  avatarUrl = '../../../public/assets/avatars/drdan2.png',
-  codezillaUrl = '../../../public/assets/minions/codezilla2.png',
-}) => {
+// Get the user's chosen avatar from localStorage, or fallback to Dr. Dan
+const defaultAvatar = localStorage.getItem('selectedAvatar') || '/assets/avatars/drdan2.png';
+
+export default function VictoryPage({
+  avatarUrl = defaultAvatar,
+  confettiUrl = '/background/confetti_image.jpg',
+}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.body.classList.add('gameover-background');
-
-    return () => {
-      document.body.classList.remove('gameover-background');
-    };
+    const victoryMusic = new Audio('/totalwin1.mp3');
+    victoryMusic.volume = 0.5;
+    victoryMusic.play().catch((err) => {
+      console.warn('🏆 Victory sound blocked:', err);
+    });
   }, []);
 
   useEffect(() => {
-    const music = new Audio('/game_over.mp3');
-    const roar = new Audio('/godzilla.roar.mp3');
-
-    music.volume = 0.5;
-    roar.volume = 0.8;
-
-    // Start music immediately
-    music.play().catch((err) =>
-      console.warn('🎵 Game Over music blocked:', err)
-    );
-
-    // Play roar after 2.5 seconds
-    const roarDelay = setTimeout(() => {
-      roar.play().catch((err) =>
-        console.warn('🦖 Godzilla roar blocked:', err)
-      );
-    }, 2500);
-
-    // Cleanup
+    document.body.classList.add('gameover-background');
     return () => {
-      clearTimeout(roarDelay);
-      music.pause();
-      music.currentTime = 0;
-      roar.pause();
-      roar.currentTime = 0;
+      document.body.classList.remove('gameover-background');
     };
   }, []);
 
@@ -54,19 +35,22 @@ const GameOverPage = ({
   };
 
   return (
-    <div className="game-over-page">
-      <div className="game-over-container">
-        <h1 className="game-over-title">Game Over!</h1>
+    <div className="victory-page">
+      <div className="victory-container">
+        <div
+          className="victory-confetti"
+          style={{ backgroundImage: `url(${confettiUrl})` }}
+        />
 
-        <div className="game-over-images">
-          <img className="player-avatar" src={avatarUrl} alt="Player Avatar" />
-          <img className="codezilla-avatar" src={codezillaUrl} alt="Codezilla" />
-        </div>
+        <h1 className="victory-title">Congratulations!</h1>
 
-        <h2 className="game-over-subtitle">You were defeated by Codezilla!</h2>
-        <p className="game-over-cta">Try again to become a code master</p>
+        <img className="victory-avatar" src={avatarUrl} alt="Player Avatar" />
 
-        <div className="game-over-actions">
+        <h2 className="victory-subtitle">You defeated Codezilla!</h2>
+
+        <p className="victory-cta">You are a coding master!</p>
+
+        <div className="victory-actions">
           <button className="btn play-again-btn" onClick={handlePlayAgain}>
             Play Again!
           </button>
@@ -83,6 +67,4 @@ const GameOverPage = ({
       </div>
     </div>
   );
-};
-
-export default GameOverPage;
+}

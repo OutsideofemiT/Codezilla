@@ -7,6 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  base: '/', // ✅ Important for Render and static hosting
   plugins: [react()],
   resolve: {
     alias: {
